@@ -73,7 +73,9 @@ class ControllerCommand extends GenerateCommand
         if ($this->confirm("Proceed with the controller creation? [Yes|no]")) {
             $this->info("Creating $class...");
             // Generate
-            $filename = 'controllers/'.($namespace ? str_replace('\\', '/', $namespace).'/' : '').$class.'.php';
+            //$filename = 'controllers/'.($namespace ? str_replace('\\', '/', $namespace).'/' : '').$class.'.php';
+            //For laravel 5.1.* above. 
+            $filename = '/Http/Controllers/'.($namespace ? str_replace('\\', '/', $namespace).'/' : '').$class.'.php';
             $this->generateFile($filename, 'generators.controller', $viewVars);
             $this->info("$class.php Successfully created!");
 
